@@ -25,6 +25,14 @@ functions:
       - http: 
           path: personas
           method: post
+  personaListar:
+    handler: api/persona.listar
+    memorySize: 128
+    description: Lista todas las personas
+    events:
+      - http: 
+          path: personas
+          method: get 
 
 resources:
   Resources:
