@@ -8,8 +8,9 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: api/persona.guardar
+    description: Guardar la informacion de una persona.
     events:
-      - http:
-          method: get
-          path: hello
+      - http: 
+          path: personas
+          method: post
