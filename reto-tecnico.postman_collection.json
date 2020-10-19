@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "e8e4ca97-81ca-4d47-adca-df65124d24f7",
+		"name": "reto-tecnico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST - Persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"1\",\n\t\"nombre_apellidos\": \"susana sanchez\",\n\t\"anio_nacimiento\": \"92 BBY\",\n\t\"color_ojos\": \"Negro\",\n\t\"genero\": \"Femenino\",\n\t\"color_cabello\": \"Negro\",\n\t\"altura\": \"165\",\n\t\"masa\": \"77\",\n\t\"color_piel\": \"clara\",\n\t\"url_planeta\": \"https://swapi.py4e.com/api/planets/1/\",\n\t\"peliculas\": [\n\t\t\"https://swapi.py4e.com/api/films/1/\",\n\t\t\"https://swapi.py4e.com/api/films/2/\"\n\t],\n\t\"especies\": [\n\t\t\"https://swapi.py4e.com/api/species/1/\"\n\t],\n\t\"naves_estelares\": [\n\t\t\"https://swapi.py4e.com/api/starships/12/\"\n\t],\n\t\"vehiculos\": [\n\t\t\"https://swapi.py4e.com/api/vehicles/14/\"\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dwiip8wd42.execute-api.us-east-1.amazonaws.com/dev/personas",
+					"protocol": "https",
+					"host": [
+						"dwiip8wd42",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"personas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Personas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dwiip8wd42.execute-api.us-east-1.amazonaws.com/dev/personas/",
+					"protocol": "https",
+					"host": [
+						"dwiip8wd42",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"personas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Persona",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dwiip8wd42.execute-api.us-east-1.amazonaws.com/dev/personas/1",
+					"protocol": "https",
+					"host": [
+						"dwiip8wd42",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"personas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Vehiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"nombre\": \"Ranger ABC\",\r\n    \"modelo\": \"Digger Crawler\",\r\n    \"clase_vehiculo\": \"wheeled\",\r\n    \"fabricante\": \"Corellia Mining Corporation\",\r\n    \"longitud\": \"30.8 \",\r\n    \"costo_en_creditos\": \"50000\",\r\n    \"tripulacion\": \"5\",\r\n    \"pasajeros\": \"300\",\r\n    \"velocidad_maxima_atmosfera\": \"98\",\r\n    \"capacidad_maxima\": \"30000\",\r\n    \"consumibles\": \"5 months\",\r\n    \"peliculas\": [\r\n        \"http://swapi.dev/api/films/1/\",\r\n        \"http://swapi.dev/api/films/5/\"\r\n    ],\r\n    \"pilotos\": [],\r\n    \"url_vehiculo\": \"http://swapi.dev/api/vehicles/4/\",\r\n    \"creado\": 1603088867477,\r\n    \"editado\": 1603088867477\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nxx75yhyak.execute-api.us-east-1.amazonaws.com/dev/vehiculos",
+					"protocol": "https",
+					"host": [
+						"nxx75yhyak",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"vehiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Vehiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nxx75yhyak.execute-api.us-east-1.amazonaws.com/dev/vehiculos/",
+					"protocol": "https",
+					"host": [
+						"nxx75yhyak",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"vehiculos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Vehiculo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://nxx75yhyak.execute-api.us-east-1.amazonaws.com/dev/vehiculos/6",
+					"protocol": "https",
+					"host": [
+						"nxx75yhyak",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"vehiculos",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

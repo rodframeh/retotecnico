@@ -28,14 +28,14 @@ functions:
   personaListar:
     handler: api/persona.listar
     memorySize: 128
-    description: Lista todas las personas
+    description: Lista todas las personas.
     events:
       - http: 
           path: personas
           method: get
   personaDetallar:
     handler: api/persona.get
-    description: Muestra las propiedades de una persona
+    description: Muestra las propiedades de una persona.
     events:
       - http:
           path: personas/{id}
