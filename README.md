@@ -3,7 +3,7 @@
 - Node.js, Serverless Framework, AWS Lambda, AWS Dynamo, Git, GitHub.
 ## Flujo integración
 
-![](C:\Users\Jimena\Desktop\retotecnico\flujo-integracion.JPG)
+![](flujo-integracion.JPG)
 
 ## Pasos
 1. Crear repositorio y rama developer en github y clonar en la maquina local.
