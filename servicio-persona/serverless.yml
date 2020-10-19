@@ -1,0 +1,63 @@
+service: persona
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    TABLA_PERSONA: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource: "*"
+
+functions:
+  personaGuardar:
+    handler: api/persona.guardar
+    memorySize: 128
+    description: Guardar la informacion de una persona.
+    events:
+      - http: 
+          path: personas
+          method: post
+  personaListar:
+    handler: api/persona.listar
+    memorySize: 128
+    description: Lista todas las personas
+    events:
+      - http: 
+          path: personas
+          method: get
+  personaDetallar:
+    handler: api/persona.get
+    description: Muestra las propiedades de una persona
+    events:
+      - http:
+          path: personas/{id}
+          method: get
+
+resources:
+  Resources:
+    CandidatesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: "id"
+            AttributeType: "S"   
+        KeySchema:
+          -
+            AttributeName: "id"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: "NEW_AND_OLD_IMAGES"
+        TableName: ${self:provider.environment.TABLA_PERSONA}
