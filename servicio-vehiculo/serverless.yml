@@ -1,0 +1,63 @@
+service: vehiculo
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    TABLA_VEHICULO: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource: "*"
+
+functions:
+  vehiculoGuardar:
+    handler: api/vehiculo.guardar
+    memorySize: 128
+    description: Guardar la informacion de un vehiculo.
+    events:
+      - http: 
+          path: vehiculos
+          method: post
+  vehiculoListar:
+    handler: api/vehiculo.listar
+    memorySize: 128
+    description: Lista todos los vehiculos.
+    events:
+      - http: 
+          path: vehiculos
+          method: get
+  vehiculoDetallar:
+    handler: api/vehiculo.get
+    description: Muestra las propiedades de un vehiculo.
+    events:
+      - http:
+          path: vehiculos/{id}
+          method: get
+
+resources:
+  Resources:
+    CandidatesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: "id"
+            AttributeType: "S"   
+        KeySchema:
+          -
+            AttributeName: "id"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: "NEW_AND_OLD_IMAGES"
+        TableName: ${self:provider.environment.TABLA_VEHICULO}
